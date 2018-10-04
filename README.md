@@ -12,16 +12,16 @@ Import the source files to TIA Portal
 
 Open datablock "DB_UnitTestControl" and control variable "start" to true.
 
-![start unit test](https://github.com/d-ani/SCL-UnitTesting/documentation/start.png)
+![start unit test](https://github.com/d-ani/SCL-UnitTesting/blob/master/documentation/start.png)
 
 
-In the datablock is show all information about the test.
+The datablock show all information about the test.
 
 Test successful
-![successful](https://github.com/d-ani/SCL-UnitTesting/documentation/successful.png)
+![successful](https://github.com/d-ani/SCL-UnitTesting/blob/master/documentation/successful.png)
 
 Test fail
-![fail](https://github.com/d-ani/SCL-UnitTesting/documentation/fail.png)
+![fail](https://github.com/d-ani/SCL-UnitTesting/blob/master/documentation/fail.png)
 
 ## Authors
 
