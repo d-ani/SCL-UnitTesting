@@ -1,0 +1,15 @@
+﻿FUNCTION "FC_Add" : Int
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      i1 : Int;
+      i2 : Int;
+   END_VAR
+
+
+BEGIN
+	#FC_Add := #i1 + #i2;
+	
+	
+END_FUNCTION
+

@@ -1,0 +1,25 @@
+﻿FUNCTION "testFailed" : Bool
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      msg : WString;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> UnitTest: test failed
+	*)
+	
+	"DB_UnitTestControl".failedTests += Uint#1;
+	"DB_UnitTestControl".totalTests := "DB_UnitTestControl".failedTests + "DB_UnitTestControl".successfulTests;
+	
+	"DB_UnitTest".eachTest += UINT#1;
+	
+	"addMessageFail"(#msg);
+	
+	#testFailed := false;
+	
+	
+END_FUNCTION
+

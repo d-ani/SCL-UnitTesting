@@ -1,0 +1,19 @@
+﻿FUNCTION "testSuccessful" : Bool
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+	(*
+	--> UnitTest: test successful
+	*)
+	
+	"DB_UnitTestControl".successfulTests += Uint#1;
+	"DB_UnitTestControl".totalTests := "DB_UnitTestControl".failedTests + "DB_UnitTestControl".successfulTests;
+	
+	"DB_UnitTest".eachTest += UINT#1;
+	
+	#testSuccessful := True;
+	
+	
+END_FUNCTION
+

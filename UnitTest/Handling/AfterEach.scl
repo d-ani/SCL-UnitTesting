@@ -1,0 +1,16 @@
+﻿FUNCTION "AfterEach" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+	(*
+	--> UnitTest: Handling after each test
+	*)
+	
+	IF "DB_UnitTest".active THEN
+	    "addMessageInfo"("UINT_TO_WSTRING_ABS"(in:= "DB_UnitTest".eachTest));
+	END_IF;
+	
+	
+END_FUNCTION
+

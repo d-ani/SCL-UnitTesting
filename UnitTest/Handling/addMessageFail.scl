@@ -1,0 +1,28 @@
+﻿FUNCTION "addMessageFail" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      msg : WString;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> UnitTest: Add new error message
+	*)
+	
+	IF "DB_UnitTest".index < "arraySize"("DB_UnitTestControl".msg) THEN
+	    "DB_UnitTestControl".msg["DB_UnitTest".index] := CONCAT_WSTRING(IN1:=WSTRING#'fail: ',
+	                                                                    IN2:="UINT_TO_WSTRING_ABS"("DB_UnitTest".counterEach),
+	                                                                    IN3:=WSTRING#'.',
+	                                                                    IN4:="UINT_TO_WSTRING_ABS"("DB_UnitTest".eachTest),
+	                                                                    IN5:=WSTRING#': ',
+	                                                                    IN6:= #msg);
+	    "DB_UnitTest".index += UINT#1;
+	ELSE
+	    "DB_UnitTestControl".msg["arraySize"("DB_UnitTestControl".msg)] := WSTRING#'limit of messages array reached';
+	END_IF;
+	
+	
+END_FUNCTION
+

@@ -1,0 +1,27 @@
+﻿FUNCTION "BeforeEach" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      iName : WString;
+   END_VAR
+
+   VAR_TEMP 
+      i : Int;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> UnitTest: handling before each test
+	*)
+	
+	IF "DB_UnitTest".active THEN
+	    "addMessageInfo"(#iName);
+	    "DB_UnitTest".counterEach +=UINT#1;
+	    "DB_UnitTest".eachTest := UINT#0;
+	END_IF;
+	
+	
+	
+END_FUNCTION
+

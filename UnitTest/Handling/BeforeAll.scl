@@ -1,0 +1,37 @@
+﻿FUNCTION "BeforeAll" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_TEMP 
+      i : Int;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> UnitTest: handling before all tests
+	*)
+	
+	
+	IF NOT "DB_UnitTestControl".done THEN
+	    "DB_UnitTest".index := UINT#0;
+	    
+	    "DB_UnitTest".counterEach := UINT#0;
+	    "DB_UnitTest".eachTest := UINT#0;
+	
+	    "DB_UnitTestControl".successfulTests := UINT#0;
+	    "DB_UnitTestControl".failedTests := UINT#0;
+	
+	    "DB_UnitTestControl".totalTests := UINT#0;
+	
+	    FOR #i := 0 TO "arraySize"("DB_UnitTestControl".msg) BY 1 DO
+	        "DB_UnitTestControl".msg[#i] := WSTRING#'';
+	    END_FOR;
+	END_IF;
+	
+	"DB_UnitTest".delayBeforeAll(IN:="DB_UnitTestControl".start AND NOT "DB_UnitTestControl".done,
+	                             PT:="DB_UnitTestControl".delayBeforeAll,
+	                             Q=>"DB_UnitTest".active);
+	
+	
+END_FUNCTION
+

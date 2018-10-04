@@ -1,0 +1,26 @@
+﻿FUNCTION "AfterAll" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+	(*
+	--> UnitTest: Handling after all tests
+	*)
+	
+	IF "DB_UnitTest".active THEN
+	    "DB_UnitTest".active := false;
+	    "DB_UnitTestControl".done := true;
+	    IF "DB_UnitTestControl".failedTests > UINT#0 THEN
+	        "addMessageInfo"(wstring#'unit test failed');
+	    ELSE
+	        "addMessageInfo"(wstring#'unit test successful done');
+	    END_IF;
+	END_IF;
+	
+	IF NOT "DB_UnitTestControl".start THEN
+	    "DB_UnitTestControl".done := false;
+	END_IF;
+	
+	
+END_FUNCTION
+

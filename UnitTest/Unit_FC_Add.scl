@@ -1,0 +1,25 @@
+﻿FUNCTION_BLOCK "Unit_FC_Add"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR 
+      a { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+   END_VAR
+
+   VAR_TEMP 
+      _ret : Bool;
+   END_VAR
+
+
+BEGIN
+	"BeforeEach"(iName:= GetBlockName(DINT#15));
+	
+	
+	#_ret := "assertEqualsINT"(actual:= "FC_Add"(i1:= int#5, i2:= int#10),expected:= int#15);
+	#_ret := "assertEqualsINT"(actual:= "FC_Add"(i1:= int#10, i2:= int#10),expected:= int#20);
+	
+	
+	"AfterEach"();
+	
+	
+END_FUNCTION_BLOCK
+

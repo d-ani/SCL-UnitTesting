@@ -1,0 +1,18 @@
+﻿FUNCTION "arraySize" : Int
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      arr : Array[*] of WString;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> UnitTest: get upper limit of array
+	*)
+	
+	#arraySize := DINT_TO_INT(UPPER_BOUND(ARR:=#arr, DIM:=UDINT#1));
+	
+	
+END_FUNCTION
+

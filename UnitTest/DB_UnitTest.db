@@ -1,0 +1,10 @@
+﻿DATA_BLOCK "DB_UnitTest"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+"STR_UnitTest"
+
+BEGIN
+
+END_DATA_BLOCK
+

@@ -1,0 +1,32 @@
+﻿FUNCTION "assertEqualsINT" : Bool
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      expected : Int;
+      actual : Int;
+   END_VAR
+
+   VAR_TEMP 
+      _msg : WString;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> UnitTest: Asserts that expected and actual are equal.
+	*)
+	
+	IF "DB_UnitTest".active THEN
+	    IF #expected = #actual THEN
+	        #assertEqualsINT := "testSuccessful"();
+	    ELSE
+	        #_msg := CONCAT_WSTRING(IN1:= INT_TO_WSTRING(#expected), IN2:= WSTRING#' NOT equal ', IN3:= INT_TO_WSTRING(#actual));
+	        #assertEqualsINT := "testFailed"(#_msg);
+	    END_IF;
+	ELSE
+	    #assertEqualsINT := false;
+	END_IF;
+	
+	
+END_FUNCTION
+

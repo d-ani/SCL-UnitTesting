@@ -1,0 +1,19 @@
+﻿FUNCTION "UINT_TO_WSTRING_ABS" : WString
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      in : UInt;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> convert UINT to WSTRING without sign
+	*)
+	
+	
+	#UINT_TO_WSTRING_ABS := RIGHT(IN:=UINT_TO_WSTRING(#in),L:=1);
+	
+	
+END_FUNCTION
+

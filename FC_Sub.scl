@@ -1,0 +1,15 @@
+﻿FUNCTION "FC_Sub" : Int
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      i1 : Int;
+      i2 : Int;
+   END_VAR
+
+
+BEGIN
+	#FC_Sub := #i1 - #i2;
+	
+	
+END_FUNCTION
+

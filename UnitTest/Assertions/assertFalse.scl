@@ -1,0 +1,31 @@
+﻿FUNCTION "assertFalse" : Bool
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      condition : Bool;
+   END_VAR
+
+   VAR_TEMP 
+      _msg : WString;
+   END_VAR
+
+
+BEGIN
+	(*
+	--> UnitTest: Asserts that the supplied condition is false.
+	*)
+	
+	IF "DB_UnitTest".active THEN
+	    IF NOT #condition THEN
+	        #assertFalse := "testSuccessful"();
+	    ELSE
+	        #_msg := WSTRING#'TRUE is not FALSE';
+	        #assertFalse := "testFailed"(#_msg);
+	    END_IF;
+	ELSE
+	    #assertFalse := false;
+	END_IF;
+	
+	
+END_FUNCTION
+

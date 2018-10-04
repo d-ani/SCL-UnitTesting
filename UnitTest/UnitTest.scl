@@ -1,0 +1,24 @@
+﻿FUNCTION_BLOCK "UnitTest"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR 
+      idbUnit_FC_Add { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : "Unit_FC_Add";
+      idbUnit_FC_Sub { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : "Unit_FC_Sub";
+   END_VAR
+
+
+BEGIN
+	// @BeforeAll
+	"BeforeAll"();
+	
+	
+	#idbUnit_FC_Add();
+	#idbUnit_FC_Sub();
+	
+	
+	// @AfterAll
+	"AfterAll"();
+	
+	
+END_FUNCTION_BLOCK
+
